@@ -6,7 +6,7 @@ const s3 = new S3();
 export const handler: APIGatewayProxyHandler = async (event) => {
   try {
     const params = {
-      Bucket: 'my-bucket',
+      Bucket: 'new-bucket',
       Key: 'data.json'
     };
 
