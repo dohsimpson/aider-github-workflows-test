@@ -20,8 +20,8 @@ export class AiderGithubWorkflowsTestStack extends Stack {
     topic.addSubscription(new subs.SqsSubscription(queue));
 
     // Create S3 bucket
-    const bucket = new s3.Bucket(this, 'MyBucket', {
-      bucketName: 'my-bucket',
+    const bucket = new s3.Bucket(this, 'NewBucket', {
+      bucketName: 'new-bucket',
       removalPolicy: RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
     });
@@ -33,6 +33,9 @@ export class AiderGithubWorkflowsTestStack extends Stack {
       handler: 'handler',
       runtime: lambda.Runtime.NODEJS_18_X,
       timeout: Duration.seconds(30),
+      environment: {
+        BUCKET_NAME: bucket.bucketName
+      },
     });
 
     // Grant Lambda permissions to read from S3
