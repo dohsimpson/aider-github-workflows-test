@@ -1,4 +1,4 @@
-import { Duration, Stack, StackProps } from 'aws-cdk-lib';
+import { Duration, Stack, StackProps, RemovalPolicy } from 'aws-cdk-lib';
 import * as sns from 'aws-cdk-lib/aws-sns';
 import * as subs from 'aws-cdk-lib/aws-sns-subscriptions';
 import * as sqs from 'aws-cdk-lib/aws-sqs';
@@ -22,7 +22,7 @@ export class AiderGithubWorkflowsTestStack extends Stack {
     // Create S3 bucket
     const bucket = new s3.Bucket(this, 'MyBucket', {
       bucketName: 'my-bucket',
-      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      removalPolicy: RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
     });
 

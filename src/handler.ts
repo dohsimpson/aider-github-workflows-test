@@ -20,7 +20,7 @@ export const handler: APIGatewayProxyHandler = async (event) => {
         fileMetadata: metadata
       })
     };
-  } catch (error) {
+  } catch (error: any) {
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Error fetching data from S3' })
