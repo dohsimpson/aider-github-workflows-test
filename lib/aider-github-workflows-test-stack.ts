@@ -22,7 +22,6 @@ export class AiderGithubWorkflowsTestStack extends Stack {
     // Create S3 bucket
     const bucket = new s3.Bucket(this, 'NewBucket', {
       bucketName: 'new-bucket',
-      removalPolicy: RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
     });
 
